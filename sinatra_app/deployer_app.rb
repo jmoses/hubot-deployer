@@ -54,7 +54,7 @@ end
 #pass in the repo name and deploy that shit
 get '/deploy/:name/:environment/?:command?' do
   logger.info "Attempting to deploy: #{params.inspect}"
-  result = RepoUpdater.deploy(params[:name], params[:environment], params[:command].blank? ? params[:command] : 'deploy')
+  result = RepoUpdater.deploy(params[:name], params[:environment], params[:command].blank? ? 'deploy' : params[:command])
 
   if result != "Deploy complete."
     [500, result]
