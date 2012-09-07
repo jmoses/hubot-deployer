@@ -20,7 +20,7 @@ class DeployerApp < Sinatra::Base
     end
 
     def bundle(repo_name)
-      do_in_as_login(repo_name, "bundle --no-color")
+      do_in_as_login(repo_name, "bundle --gemfile #{File.join(BASE, repo, 'Gemfile')} --no-color")
     end
 
     def deploy(repo_name, environment, task = "deploy")
@@ -52,15 +52,6 @@ class DeployerApp < Sinatra::Base
     def success?(response)
       $?.exitstatus.zero?
     end
-
-    def env_vars(repo)
-      {
-        'BUNDLE_GEMFILE' => File.join(BASE, repo, 'Gemfile'),
-        'GEM_HOME' => File.join(BASE, repo, 'vendor/bundle/ruby/1.9.1'),
-        'GEM_PATH' => '',
-      }.inject("") {|memo, (key, value)| "#{key}=#{value} #{memo}" }
-    end
-
 
   end
 
