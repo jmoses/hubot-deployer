@@ -22,7 +22,7 @@ module RepoUpdater
   end
 
   def bundle(repo_name)
-    do_in_as_login(repo_name, "bundle --no-color")
+    do_in(repo_name, "bundle --no-color")
   end
 
   def deploy(repo_name, environment, task = "deploy")
