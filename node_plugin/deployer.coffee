@@ -9,7 +9,7 @@ hackers = [
 ]
 
 module.exports = (robot) ->
-  robot.respond /deploy (\w+) to (\w+)(?: with (\w+))?/i, (msg) ->
+  robot.respond /deploy (\w+) to (\w+)(?: with (.+))?/i, (msg) ->
     msg.send 'Attempting deploy. Please hold.'
     msg.send msg.random hackers
 
