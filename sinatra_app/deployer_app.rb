@@ -12,7 +12,7 @@ end
 
 class DeployerApp < Sinatra::Base
   module RepoUpdater
-    BASE = "/Users/jmoses/dev/geezeo"
+    BASE = File.read('.basedir').strip
 
     module_function
     def update(repo_name)
