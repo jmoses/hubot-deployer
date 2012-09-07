@@ -14,7 +14,7 @@ module.exports = (robot) ->
     msg.send msg.random hackers
 
     #hit the sinatra app to do the deploy
-    msg.http("http://localhost:9292/deploy/#{msg.match[1]}/#{msg.match[2]}/#{msg.match[3] || ''}")
+    msg.http("http://localhost:4567/deploy/#{msg.match[1]}/#{msg.match[2]}/#{msg.match[3] || ''}")
     .get() (err, res, body) ->
       if res.statusCode != 200
         msg.send "Something went horribly wrong: #{body}"
