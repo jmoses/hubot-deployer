@@ -1,3 +1,9 @@
+# Description:
+#   Deploy things
+#
+# Commands:
+#   hubot deploy [repo] to [env] (with [task])
+#
 hackers = [
   "http://hubot-assets.s3.amazonaws.com/hackers/1.gif",
   "http://hubot-assets.s3.amazonaws.com/hackers/2.gif",
