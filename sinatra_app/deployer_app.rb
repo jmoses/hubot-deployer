@@ -1,3 +1,6 @@
+require 'rubygems'
+require 'sinatra'
+
 class String
   def blank?
     size.zero?
