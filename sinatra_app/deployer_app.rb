@@ -34,6 +34,10 @@ module RepoUpdater
       return "Failed bundling: #{result}"
     end
 
+    unless success?(result = do_in(repo_name, "bin/rake sass:update") )
+      return "Failed updating sass: #{result}"
+    end
+
     unless success?(result = do_in(repo_name, "bin/cap #{environment} #{task}"))
       return "Failed deploying: #{result}"
     end
